@@ -1,10 +1,12 @@
 
-
 <#--needs an action here and perhaps i could make just one form for register and edit user-->
 <#--should action direct me to /user/mail-->
 <#--***********************************************do i need to specify required here-->
 
-<form class="needs-validation" action="/user" id="register" method="POST">
+<#--register form is defined here-->
+<#--whether user registers or not will be directed to login page-->
+<#--and prompted to login-->
+<form class="needs-validation" action="/login" id="login" method="POST">
 
 <#--    row with first and last name input-->
     <div class="row">
