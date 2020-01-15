@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 
-    <#include  "partials/head.ftlh">
-<#--    <#include "../partials/body.ftlh">-->
+    <#include  "../partials/head.ftlh">
     <title>Login</title>
 </head>
 <body>
@@ -32,9 +31,10 @@
             </div>
         </div>
 
-<#--        somewhere here add anchor link to register page-->
+<#--        somewhere here add anchor link to /register page-->
+<#--        **insert text Have you registered yet?**-->
     </form>
 
-    <#include "partials/body.ftlh">
+    <#include "../partials/body.ftlh">
 </body>
 </html>

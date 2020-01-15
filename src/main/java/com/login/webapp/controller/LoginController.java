@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 
-    //further implementation for spring security
+    //further implementation pending for spring security
     @GetMapping({"/login"})
     public String login(Model model){
-//        return "pages/login";
-        return "login";
+        return "pages/login";
     }
 
 }
