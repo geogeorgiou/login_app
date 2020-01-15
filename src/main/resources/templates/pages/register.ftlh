@@ -7,7 +7,8 @@
 </head>
 <body>
 
-    BLANK!
+    <#include "../userForm.ftlh">
+
     <#include "../partials/body.ftlh">
 </body>
 </html>
