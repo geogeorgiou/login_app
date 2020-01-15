@@ -7,8 +7,8 @@
 </head>
 <body>
 
-    <#include "../forms/registerForm.ftlh">
+<#include "../forms/userForm.ftlh">
 
-    <#include "../partials/body.ftlh">
+<#include "../partials/body.ftlh">
 </body>
 </html>
