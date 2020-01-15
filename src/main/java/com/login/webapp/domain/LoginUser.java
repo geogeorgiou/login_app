@@ -35,6 +35,9 @@ public class LoginUser {
     @Column(name = "password", nullable = false)
     private String password;
 
+    public LoginUser() {
+    }
+
     public LoginUser(String email,
                      String firstName,
                      String lastName,
