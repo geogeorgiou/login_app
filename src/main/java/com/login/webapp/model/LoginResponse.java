@@ -10,7 +10,10 @@ public class LoginResponse extends User {
 
     private LoginUser loginUser;
 
-    public LoginResponse(String username, String password, Collection<? extends GrantedAuthority> authorities, LoginUser loginUser) {
+    public LoginResponse(String username,
+                         String password,
+                         Collection<? extends GrantedAuthority> authorities,
+                         LoginUser loginUser) {
         super(username, password, authorities);
         this.loginUser = loginUser;
     }

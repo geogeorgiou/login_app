@@ -1,10 +1,9 @@
 package com.login.webapp.security;
-
-
 import com.login.webapp.authenticationhandler.LoginSuccessHandler;
 import com.login.webapp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,10 +18,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private LoginSuccessHandler loginSuccessHandler;
 
     @Bean
-    public UserDetailsService userDetailsService() {return new UserDetailsServiceImpl();}
+    public UserDetailsService userDetailsService(){ return new UserDetailsServiceImpl();}
 
     @Bean
-    public PasswordEncoder passwordEncoder() {return new BCryptPasswordEncoder();}
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
+        auth.userDetailsService(userDetailsService())
+                .passwordEncoder(passwordEncoder());
+    }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
@@ -53,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").anonymous()
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/user/**").hasAuthority("USER")
 
                 //ERROR HANDLING FOR ACCESS DENIED
@@ -68,4 +78,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
+
 }
+

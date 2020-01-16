@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //controller to listen to "/user" related pages
 
 @Controller
-@RequestMapping({"/user"})
+//@RequestMapping({"/user"})
 public class UserController {
 
     private static final String USERS_ATTR = "loggedUser";
@@ -43,7 +43,7 @@ public class UserController {
 
     //    function for setting user input to DB and
     //    redirecting to itself
-    @GetMapping({"/user/edit"})
+    @GetMapping({"/edit"})
     public String setUserHome(@PathVariable String email,UserModel userModel){
 
 //        and only if exists! needs some exception handling here too

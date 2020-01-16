@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class HomeController {
 
@@ -23,11 +24,13 @@ public class HomeController {
     private UserToUserModel modelMapper;
 
     @GetMapping(value = "/user/home")
-    public String userRepairs(Model model) {
+    public String userHome(Model model) {
+
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         LoginResponse loginResponse = (LoginResponse) contextHolder.getAuthentication().getPrincipal();
 
         LoginUser loginUser = loginResponse.getLoginUser();
+        System.out.println(loginUser.getEmail());
         UserModel userModel = modelMapper.mapToUserModel(loginUser);
 
         model.addAttribute(LOGGED_USER_ATTR, userModel);

@@ -53,7 +53,7 @@
 </head>
 <body class="text-center">
 
-<form class="form-login needs-validation" action="/home"  id="user-login" >
+<form class="form-login needs-validation" action="/login"  id="user-login" method="POST">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -75,6 +75,15 @@
             Password is required.
         </div>
     </div>
+
+    <#if hasError>
+        <div>
+            <p style="color:red;">
+                Invalid username and/or password!!!
+            </p>
+        </div>
+    </#if>
+
     <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Login</button>
 
     <div class="register_anchor_container">
