@@ -6,7 +6,7 @@
 <#--register form is defined here-->
 <#--whether user registers or not will be directed to login page-->
 <#--and prompted to login-->
-<form class="needs-validation" action="/login" id="login" method="POST">
+<form class="needs-validation" action="/login" id="userRegister" method="POST">
 
 <#--    row with first and last name input-->
     <div class="row">
@@ -61,8 +61,8 @@
     <div class="row">
 
         <div class="col-md-6 mb-3">
-            <label for="password1">Password</label>
-            <input type="password" class="form-control" id="password1" name="password1" placeholder="Re-enter password" required>
+            <label for="confirm_password">Password</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
         </div>
 
     </div>

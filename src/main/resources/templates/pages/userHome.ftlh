@@ -3,12 +3,14 @@
 <head>
 
     <#include  "../partials/head.ftlh">
-    <title>Register</title>
+    <title>Home</title>
 </head>
 <body>
 
-<#include "../forms/userForm.ftlh">
+    <#include "../forms/userForm.ftlh">
 
-<#include "../partials/body.ftlh">
+    <#include "../partials/body.ftlh">
+
+    <script src="/validator.js"></script>
 </body>
 </html>

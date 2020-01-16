@@ -10,5 +10,7 @@
     <#include "../forms/registerForm.ftlh">
 
     <#include "../partials/body.ftlh">
+
+    <script src="/validator.js"></script>
 </body>
 </html>
