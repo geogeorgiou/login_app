@@ -1,9 +1,8 @@
 package com.login.webapp.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.login.webapp.enums.RoleType;
+
+import javax.persistence.*;
 
 
 //Main Entity of the Web App
@@ -35,6 +34,10 @@ public class LoginUser {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private RoleType role;
+
     public LoginUser() {
     }
 
@@ -43,13 +46,15 @@ public class LoginUser {
                      String lastName,
                      String company,
                      String phoneNumber,
-                     String password) {
+                     String password,
+                     RoleType role) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.company = company;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.role = role;
     }
 
     public String getEmail() {
@@ -99,6 +104,10 @@ public class LoginUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public RoleType getRole() { return role; }
+
+    public void setRole(RoleType role) { this.role = role; }
 
     @Override
     public String toString() {

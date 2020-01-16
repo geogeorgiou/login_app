@@ -1,5 +1,7 @@
 package com.login.webapp.model;
 
+import com.login.webapp.enums.RoleType;
+
 //necessary functional class to get data from DB and output it to HTML
 public class UserModel {
 
@@ -16,17 +18,10 @@ public class UserModel {
 
     private String password;
 
+    private RoleType role;
+
     public UserModel() {
     }
-
-//    public UserModel(String email, String firstName, String lastName, String company, String phoneNumber, String password) {
-//        this.email = email;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.company = company;
-//        this.phoneNumber = phoneNumber;
-//        this.password = password;
-//    }
 
     public String getEmail() {
         return email;
@@ -75,4 +70,8 @@ public class UserModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public RoleType getRole() { return role; }
+
+    public void setRole(RoleType role) { this.role = role; }
 }

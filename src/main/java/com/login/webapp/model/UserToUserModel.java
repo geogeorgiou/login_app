@@ -1,7 +1,7 @@
 package com.login.webapp.model;
 
 import com.login.webapp.domain.LoginUser;
-import com.login.webapp.model.UserModel;
+import com.login.webapp.enums.RoleType;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,6 +16,7 @@ public class UserToUserModel {
         userModel.setLastName(user.getLastName());
         userModel.setPhoneNumber(user.getPhoneNumber());
         userModel.setPassword(user.getPassword());
+        userModel.setRole(user.getRole() != null ? user.getRole() : RoleType.USER); //USER IS THE DEFAULT OPTION
 
         return userModel;
 

@@ -1,6 +1,7 @@
 package com.login.webapp.service;
 
 import com.login.webapp.domain.LoginUser;
+import com.login.webapp.model.LoginResponse;
 import com.login.webapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
