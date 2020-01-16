@@ -1,22 +1,3 @@
-<#--<!DOCTYPE html>-->
-<#--<html lang="en">-->
-<#--<head>-->
-
-<#--    <#include  "../partials/head.ftlh">-->
-<#--    <title>Register</title>-->
-<#--</head>-->
-<#--<body>-->
-
-<#--    <#include "../forms/registerForm.ftlh">-->
-
-<#--    <#include "../partials/body.ftlh">-->
-
-<#--    <script src="passValidator.js"></script>-->
-<#--    <script src="/validator.js"></script>-->
-
-<#--</body>-->
-<#--</html>-->
-
 <#--<#import "/spring.ftl" as spring />-->
 
 <!DOCTYPE html>
@@ -62,6 +43,13 @@
 <#include "../partials/body.ftlh">
 <script>
     feather.replace();
+</script>
+
+<#--redirects to login page without input validation-->
+<script type="text/javascript">
+    document.getElementById("cancelBtn").onclick = function () {
+        location.href = "/login";
+    };
 </script>
 
 <script src="passValidator.js"></script>

@@ -69,14 +69,12 @@
 
     </div>
 
-<#--    submit button-->
+<#-- button and cancel buttons-->
     <div class="col-md-6 order-md-1">
         <div class="row">
-            <button class="btn btn-success btn-lg mt-4" type="submit" >Register</button>&nbsp&nbsp&nbsp
-            <span id="buttonAppear"></span>
+            <button class="btn btn-success btn-lg mt-4" type="submit">Register</button>&nbsp&nbsp&nbsp
 
-            <button class="btn btn-danger btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp
-            <span id="buttonAppear"></span>
+            <button class="btn btn-danger btn-lg mt-4" type="submit" id="cancelBtn">Cancel</button>&nbsp&nbsp&nbsp
         </div>
     </div>
 </form>
