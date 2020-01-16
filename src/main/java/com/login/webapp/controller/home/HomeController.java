@@ -4,7 +4,7 @@ package com.login.webapp.controller.home;
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.model.LoginResponse;
 import com.login.webapp.model.UserModel;
-import com.login.webapp.service.UserService;
+import com.login.webapp.model.UserToUserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,15 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
-
 @Controller
 public class HomeController {
 
-    private static final String USERS_LIST = "users";
+    private static final String LOGGED_USER_ATTR = "loggedUser";
+    private static final String LOGGED_USER_NAME = "userFirstName";
+    private static final String LOGGED_USER_ROLE = "role";
 
     @Autowired
-    private UserService userService;
+    private UserToUserModel modelMapper;
 
     @GetMapping(value = "/user/home")
     public String userRepairs(Model model) {
@@ -28,9 +28,11 @@ public class HomeController {
         LoginResponse loginResponse = (LoginResponse) contextHolder.getAuthentication().getPrincipal();
 
         LoginUser loginUser = loginResponse.getLoginUser();
+        UserModel userModel = modelMapper.mapToUserModel(loginUser);
 
-        model.addAttribute("userFirstName", loginUser.getFirstName());
-        model.addAttribute("role", loginUser.getRole().name());
+        model.addAttribute(LOGGED_USER_ATTR, userModel);
+        model.addAttribute(LOGGED_USER_NAME, loginUser.getFirstName());
+        model.addAttribute(LOGGED_USER_ROLE, loginUser.getRole().name());
         return "pages/userHome";
     }
 

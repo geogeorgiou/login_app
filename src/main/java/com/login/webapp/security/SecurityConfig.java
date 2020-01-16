@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").anonymous()
-                .antMatchers("/user/**").hasAuthority("USER")   //need to add some field for user role?
+                .antMatchers("/user/**").hasAuthority("USER")
 
                 //ERROR HANDLING FOR ACCESS DENIED
                 .and()

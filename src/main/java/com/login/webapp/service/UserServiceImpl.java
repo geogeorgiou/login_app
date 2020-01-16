@@ -35,7 +35,6 @@ public class UserServiceImpl implements UserService {
         //needs some exception handling here if exists etc
         Optional<LoginUser> loginUser = userRepository.findByEmail(email);
         return mapper.mapToUserModel(loginUser.get());
-//        return userRepository.findByEmail(email);
     }
 
     @Override
@@ -48,6 +47,7 @@ public class UserServiceImpl implements UserService {
         loginUser.setLastName(userModel.getLastName());
         loginUser.setPhoneNumber(userModel.getPhoneNumber());
         loginUser.setPassword(userModel.getPassword());
+        loginUser.setRole(userModel.getRole());
 
         return userRepository.save(loginUser);
     }

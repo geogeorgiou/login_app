@@ -1,20 +1,3 @@
-<#--<!DOCTYPE html>-->
-<#--<html lang="en">-->
-<#--<head>-->
-
-<#--    <#include  "../partials/head.ftlh">-->
-<#--    <title>Home</title>-->
-<#--</head>-->
-<#--<body>-->
-
-<#--    <#include "../forms/userForm.ftlh">-->
-
-<#--    <#include "../partials/body.ftlh">-->
-
-<#--    <script src="/validator.js"></script>-->
-<#--</body>-->
-<#--</html>-->
-
 <#import "/spring.ftl" as spring />
 
 <!DOCTYPE html>
@@ -40,7 +23,7 @@
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
 
-            <a class="nav-link" href="/login">Logout</a>
+            <a class="nav-link" href="/logout">Logout</a>
 
         </li>
     </ul>

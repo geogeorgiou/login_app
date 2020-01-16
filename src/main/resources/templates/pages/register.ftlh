@@ -1,5 +1,3 @@
-<#--<#import "/spring.ftl" as spring />-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +14,13 @@
         <span>Register Page</span>
     </a>
 
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
+<#--    <ul class="navbar-nav px-3">-->
+<#--        <li class="nav-item text-nowrap">-->
 
-            <a class="nav-link" href="/login">Logout</a>
+<#--            <a class="nav-link" href="/login">Logout</a>-->
 
-        </li>
-    </ul>
+<#--        </li>-->
+<#--    </ul>-->
 </nav>
 <div class="container-fluid">
     <div class="row">

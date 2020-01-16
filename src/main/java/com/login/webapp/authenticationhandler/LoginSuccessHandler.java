@@ -19,7 +19,10 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        Authentication authentication)
+            throws IOException, ServletException {
 
         String redirectUrl = USER_HOME_PAGE_URL;
 
