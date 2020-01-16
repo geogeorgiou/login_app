@@ -4,7 +4,7 @@ package com.login.webapp.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 //controller to listen to "/login"
 
@@ -12,16 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LoginController {
 
 
-    //further implementation pending for spring security
     @GetMapping({"/login"})
-    public String getLogin(Model model){
+    public String login(@RequestParam(name = "error", required = false) boolean error,Model model){
+        model.addAttribute("hasError",error);
         return "pages/login";
     }
-
-    //post mapping to return after user POST register data
-//    @PostMapping({"/login"})
-//    public String postLogin(Model model){
-//        return "pages/login";
-//    }
 
 }
