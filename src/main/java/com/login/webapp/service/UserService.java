@@ -11,4 +11,8 @@ public interface UserService {
 //    Optional<LoginUser> findByEmail(String email);
 
     UserModel findByEmail(String email);
+
+    //UPDATE
+
+    LoginUser updateUser(UserModel userModel);
 }
