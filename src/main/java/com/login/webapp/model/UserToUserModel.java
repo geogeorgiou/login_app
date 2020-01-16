@@ -1,6 +1,7 @@
-package com.login.webapp;
+package com.login.webapp.model;
 
 import com.login.webapp.domain.LoginUser;
+import com.login.webapp.model.UserModel;
 import org.springframework.stereotype.Component;
 
 @Component

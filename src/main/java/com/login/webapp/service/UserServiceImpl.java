@@ -1,7 +1,7 @@
 package com.login.webapp.service;
 
-import com.login.webapp.UserModel;
-import com.login.webapp.UserToUserModel;
+import com.login.webapp.model.UserModel;
+import com.login.webapp.model.UserToUserModel;
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

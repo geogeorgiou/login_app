@@ -1,4 +1,4 @@
-package com.login.webapp;
+package com.login.webapp.model;
 
 //necessary functional class to get data from DB and output it to HTML
 public class UserModel {
