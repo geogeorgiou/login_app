@@ -8,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 //controller to listen to "/user" related pages
 
 @Controller
+@RequestMapping({"/user"})
 public class UserController {
 
     private static final String USERS_ATTR = "loggedUser";
@@ -23,7 +25,7 @@ public class UserController {
 //    function for retrieving user data from DB
 
 //    @GetMapping({"/user/{email}"})
-    @GetMapping({"/home"})
+    @GetMapping({"/wellsee"})
 //    public String getUserHome(Model model){
     public String getUserHome(@PathVariable String email,Model model){
 

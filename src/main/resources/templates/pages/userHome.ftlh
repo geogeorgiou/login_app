@@ -30,7 +30,11 @@
 
     <a class="navbar-brand col-sm-3 col-md-2 mr-0">
 
-        <span>Home Page</span>
+        <#if role == "ADMIN">
+            <span>Admin Page</span>
+        <#elseif role == "USER">
+            <span>User's ${userFirstName} Page</span>
+        </#if>
     </a>
 
     <ul class="navbar-nav px-3">
