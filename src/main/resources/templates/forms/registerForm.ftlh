@@ -53,6 +53,9 @@
         <div class="col-md-6 mb-3">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+
+<#--            <span id="pass_err_msg"></span>-->
+            <p><span class="emsg hidden">Please Enter a Valid Password</span></p>
         </div>
 
     </div>
@@ -61,8 +64,10 @@
     <div class="row">
 
         <div class="col-md-6 mb-3">
-            <label for="confirm_password">Password</label>
+            <label for="confirm_password">Confirm Password</label>
             <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
+
+<#--            <span id="pass_err_msg"></span>-->
         </div>
 
     </div>

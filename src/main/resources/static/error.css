@@ -20,3 +20,10 @@ label.error{
 input.valid, input.valid:focus{
     border-color: green;
 }
+
+.emsg{
+    color: red;
+}
+.hidden {
+    visibility:hidden;
+}

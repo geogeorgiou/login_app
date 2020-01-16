@@ -11,6 +11,8 @@
 
     <#include "../partials/body.ftlh">
 
+    <script src="passValidator.js"></script>
     <script src="/validator.js"></script>
+
 </body>
 </html>
