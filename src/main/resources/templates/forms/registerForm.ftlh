@@ -54,8 +54,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
 
-<#--            <span id="pass_err_msg"></span>-->
-            <p><span class="emsg hidden">Please Enter a Valid Password</span></p>
+            <p><span class="emsg hidden">Please enter a Valid Password</span></p>
         </div>
 
     </div>
@@ -66,8 +65,6 @@
         <div class="col-md-6 mb-3">
             <label for="confirm_password">Confirm Password</label>
             <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
-
-<#--            <span id="pass_err_msg"></span>-->
         </div>
 
     </div>
@@ -75,10 +72,10 @@
 <#--    submit button-->
     <div class="col-md-6 order-md-1">
         <div class="row">
-            <button class="btn btn-primary btn-lg mt-4" type="submit" >Register</button>&nbsp&nbsp&nbsp
+            <button class="btn btn-success btn-lg mt-4" type="submit" >Register</button>&nbsp&nbsp&nbsp
             <span id="buttonAppear"></span>
 
-            <button class="btn btn-primary btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp
+            <button class="btn btn-danger btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp
             <span id="buttonAppear"></span>
         </div>
     </div>
