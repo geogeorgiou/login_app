@@ -1,0 +1,12 @@
+.register_anchor_container{
+    margin-top: 10px;
+}
+
+.register_anchor{
+    text-decoration: none;
+}
+
+.register_anchor:hover{
+    color: orange;
+    cursor: pointer;
+}
