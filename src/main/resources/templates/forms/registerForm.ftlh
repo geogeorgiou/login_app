@@ -6,7 +6,7 @@
 <#--register form is defined here-->
 <#--whether user registers or not will be directed to login page-->
 <#--and prompted to login-->
-<form class="needs-validation" action="/login" id="userValidator" method="POST">
+<form class="needs-validation" action="/login" id="userValidator" method="POST" onsubmit="return passValidator();">
 
 <#--    row with first and last name input-->
     <div class="row">
