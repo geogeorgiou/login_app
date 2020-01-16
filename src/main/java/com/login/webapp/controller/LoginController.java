@@ -19,9 +19,9 @@ public class LoginController {
     }
 
     //post mapping to return after user POST register data
-    @PostMapping({"/login"})
-    public String postLogin(Model model){
-        return "pages/login";
-    }
+//    @PostMapping({"/login"})
+//    public String postLogin(Model model){
+//        return "pages/login";
+//    }
 
 }

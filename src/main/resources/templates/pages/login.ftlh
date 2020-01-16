@@ -45,16 +45,15 @@
 
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css">
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/checkout/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="/login_styles.css">
+    <link rel="stylesheet" type="text/css" href="css/login_styles.css">
 
-<#--    <link href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css" rel="stylesheet">-->
     <title>Login</title>
     <#include  "../partials/head.ftlh">
 
 </head>
 <body class="text-center">
 
-<form class="form-login needs-validation" action="/login"  id="user-login" >
+<form class="form-login needs-validation" action="/home"  id="user-login" >
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>

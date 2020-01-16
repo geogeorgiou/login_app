@@ -2,9 +2,9 @@
 <#--user form is defined here-->
 <#--this form is used when logged in for data display and edit-->
 
-<form class="needs-validation"  action="/user/${loggedUser.email}" id="userValidator" method="POST">
-<#--      action="/user/home" id="userProfile" method="POST">-->
-<#--      action="/user/${loggedUser.email}" id="userProfile" method="POST">-->
+ <form class="needs-validation" action="/home" id="userProfile" method="POST">
+<#--<form class="needs-validation"  action="/user/${loggedUser.email}" id="userValidator" method="POST">-->
+
 
     <#--    row with first and last name input-->
     <div class="row">
@@ -55,16 +55,15 @@
     </div>
 
 
-    <#--    submit buttons-->
+    <#--    submit button-->
 
-<#--    need separate functionality for change and for cancel...-->
     <div class="col-md-6 order-md-1">
         <div class="row">
             <button class="btn btn-primary btn-lg mt-4" type="submit" >Submit Changes</button>&nbsp&nbsp&nbsp
-            <span id="buttonAppear"></span>
+<#--            <span id="buttonAppear"></span>-->
 
-            <button class="btn btn-primary btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp
-            <span id="buttonAppear"></span>
+<#--            <button class="btn btn-primary btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp-->
+<#--            <span id="buttonAppear"></span>-->
         </div>
     </div>
 </form>

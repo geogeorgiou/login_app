@@ -13,7 +13,7 @@
 
     <a class="navbar-brand col-sm-3 col-md-2 mr-0">
 
-        <span>Home Page</span>
+        <span>Register Page</span>
     </a>
 
     <ul class="navbar-nav px-3">
@@ -33,7 +33,7 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h2>User's profile:</h2>
+            <h2>Register info:</h2>
 
             <#include "../forms/registerForm.ftlh">
 
@@ -52,8 +52,9 @@
     };
 </script>
 
-<script src="passValidator.js"></script>
-<script src="/validator.js"></script>
+<script src="js/passValidator.js"></script>
+<script src="js/validator.js"></script>
+
 </body>
 </html>
 

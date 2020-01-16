@@ -22,13 +22,18 @@ public class UserController {
     private UserService userService;
 
 //    function for retrieving user data from DB
-    @GetMapping({"/user/{email}"})
+
+//    @GetMapping({"/user/{email}"})
+    @GetMapping({"/home"})
+//    public String getUserHome(Model model){
     public String getUserHome(@PathVariable String email,Model model){
 
 //        and only if exists! needs some exception handling here too
 
 //        Optional<LoginUser> loginUser = userService.findByEmail(email);
 
+//        UserModel userModel = userService.findByEmail("kazatz@test.com");
+//        System.out.println(userModel.getEmail());
         UserModel userModel = userService.findByEmail(email);
         model.addAttribute(USERS_ATTR,userModel);
         return "pages/userHome";
