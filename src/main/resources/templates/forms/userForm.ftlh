@@ -2,7 +2,7 @@
 <#--user form is defined here-->
 <#--this form is used when logged in for data display and edit-->
 
- <form class="needs-validation" action="" id="userProfile" method="POST">
+ <form class="needs-validation" action="/user/home" id="userValidator" method="POST" onsubmit="return passValidator();">
 <#--<form class="needs-validation"  action="/user/${loggedUser.email}" id="userValidator" method="POST">-->
 
 

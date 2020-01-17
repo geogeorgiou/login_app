@@ -1,10 +1,11 @@
 package com.login.webapp.service;
 
 import com.login.webapp.model.UserModel;
-import com.login.webapp.model.UserToUserModel;
+import com.login.webapp.mapper.UserToUserModel;
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.repository.LoginUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,6 +21,9 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     //mapper to map DB data to Model data
     @Autowired
     private UserToUserModel mapper;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     //SEARCH
 //    @Override
@@ -46,8 +50,12 @@ public class LoggedUserServiceImpl implements LoggedUserService {
         loginUser.setFirstName(userModel.getFirstName());
         loginUser.setLastName(userModel.getLastName());
         loginUser.setPhoneNumber(userModel.getPhoneNumber());
-        loginUser.setPassword(userModel.getPassword());
-        loginUser.setRole(userModel.getRole()); //maybe not needed in update
+
+
+        loginUser.setPassword(encoder.encode(userModel.getPassword()));
+
+//        loginUser.setPassword(userModel.getPassword());
+        loginUser.setRole(userModel.getRole());
 
         return userRepo.save(loginUser);
     }

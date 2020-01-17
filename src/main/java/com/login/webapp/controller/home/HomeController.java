@@ -2,6 +2,7 @@ package com.login.webapp.controller.home;
 
 
 import com.login.webapp.domain.LoginUser;
+import com.login.webapp.enums.RoleType;
 import com.login.webapp.model.LoginResponse;
 import com.login.webapp.model.UserModel;
 import com.login.webapp.service.LoggedUserService;
@@ -11,6 +12,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -23,13 +26,16 @@ public class HomeController {
     @Autowired
     private LoggedUserService loggedUserService;
 
+//    @Autowired
+//    private UserModelToUser mapper;
+
     @GetMapping(value = "/user/home")
-    public String userRepairs(Model model) {
+    public String getUserProfile(Model model) {
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         LoginResponse loginResponse = (LoginResponse) contextHolder.getAuthentication().getPrincipal();
 
         LoginUser loginUser = loginResponse.getLoginUser();
-        System.out.println(loginUser.getEmail());
+//        System.out.println(loginUser.getEmail());
 
         UserModel userModel = loggedUserService.findByEmail(loginUser.getEmail());
 
@@ -39,6 +45,24 @@ public class HomeController {
 
 
         return "pages/userHome";
+    }
+
+    @PostMapping(value = "/user/home")
+    public String postUserProfile(Model model,
+                                  @ModelAttribute(LOGGED_USER_ATTR) UserModel userForm) {
+
+        //this should be changed depending on user/admin
+        userForm.setRole(RoleType.USER);
+
+        //may be redundant?
+        model.addAttribute(LOGGED_USER_ATTR, userForm);
+        model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
+        model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
+
+        loggedUserService.updateUser(userForm);
+
+//        return "pages/userHome";
+        return "redirect:/user/home";
     }
 
 

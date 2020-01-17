@@ -1,7 +1,8 @@
-package com.login.webapp.model;
+package com.login.webapp.mapper;
 
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.enums.RoleType;
+import com.login.webapp.model.UserModel;
 import org.springframework.stereotype.Component;
 
 @Component
