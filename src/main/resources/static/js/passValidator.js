@@ -15,11 +15,9 @@ function passValidator() {
 
     //check if password matches regular expression format
     if ($regexname.test(password)){
-        alert("match password "+password);
         $('.emsg').addClass('hidden');
         return true;
     }
-    alert("mismatch password "+password);
     $('.emsg').removeClass('hidden');
     $('.emsg').show();
     return false;
