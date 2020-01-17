@@ -2,7 +2,7 @@ package com.login.webapp.service;
 
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.model.LoginResponse;
-import com.login.webapp.repository.UserRepository;
+import com.login.webapp.repository.LoginUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,16 +17,15 @@ import java.util.Optional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    UserRepository userDetailsRepository;
+    LoginUserRepository loginUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // here we would search into the repo for the user.
         // for not we are just going to send always a successful response.
 
+        Optional<LoginUser> loginUser = loginUserRepository.findByEmail(username);
 
-        Optional<LoginUser> loginUser = userDetailsRepository.findByEmail(username);
-//        Optional<LoginUser> loginUser = userDetailsRepository.findByEmail("tolstoy@test.com");
         if (loginUser.isEmpty()) {
             throw new UsernameNotFoundException("the user with email could not be found");
         }

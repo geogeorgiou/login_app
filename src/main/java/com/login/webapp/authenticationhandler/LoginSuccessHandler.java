@@ -9,7 +9,6 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,26 +17,26 @@ import java.io.IOException;
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
     private static final String USER_HOME_PAGE_URL = "/user/home";
-    private static final String ADMIN_PAGE_URL = "/admin/home";
+    private static final String ADMIN_HOME_URL = "/admin/home";
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
-
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request,
-                                        HttpServletResponse response,
-                                        Authentication authentication)
-            throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+//        response.addCookie(generateTimestampCookie());
 
-        //redundant?
         String redirectUrl = USER_HOME_PAGE_URL;
         for (GrantedAuthority grantedAuthority : authentication.getAuthorities()) {
             if (RoleType.ADMIN.name().equals(grantedAuthority.getAuthority())) {
-                redirectUrl = ADMIN_PAGE_URL;
+                redirectUrl = ADMIN_HOME_URL;
             }
         }
         redirectStrategy.sendRedirect(request, response, redirectUrl);
     }
 
+
+//    private Cookie generateTimestampCookie() {
+//        return new Cookie(TIMESTAMP_COOKIE_NAME, String.valueOf(System.currentTimeMillis()));
+//    }
 
 }

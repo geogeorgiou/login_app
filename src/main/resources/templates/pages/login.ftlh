@@ -1,43 +1,3 @@
-<#--<!DOCTYPE html>-->
-<#--<html lang="en">-->
-<#--<head>-->
-
-<#--    <#include  "../partials/head.ftlh">-->
-<#--    <title>Login</title>-->
-<#--</head>-->
-<#--<body>-->
-
-<#--&lt;#&ndash;    login form here&ndash;&gt;-->
-<#--    <form class="form-login needs-validation" action="/login"  id="user-login" method="POST" >-->
-
-<#--        <div class='preload login--container'>-->
-<#--            <div class='login--form'>-->
-<#--                <div class='login--username-container'>-->
-<#--                    <label for="email" class="sr-only">Email</label>-->
-<#--                    <input type="email" name="username" id="email" class="form-control" placeholder="Email address"  value="" required >-->
-<#--                    <div class="invalid-feedback">-->
-<#--                        Valid email is required.-->
-<#--                    </div>-->
-<#--                </div>-->
-<#--                <div class='login--password-container'>-->
-<#--                    <label for="password" class="sr-only">Password</label>-->
-<#--                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"  value="" required>-->
-<#--                    <div class="invalid-feedback">-->
-<#--                        Password is required.-->
-<#--                    </div>-->
-<#--                    <button class="js-toggle-login login--login-submit" type="submit" >Login</button>-->
-<#--                </div>-->
-
-<#--            </div>-->
-<#--        </div>-->
-
-<#--&lt;#&ndash;        somewhere here add anchor link to /register page&ndash;&gt;-->
-<#--&lt;#&ndash;        **insert text Have you registered yet?**&ndash;&gt;-->
-<#--    </form>-->
-
-<#--    <#include "../partials/body.ftlh">-->
-<#--</body>-->
-<#--</html>-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,15 +22,15 @@
     </svg>
     <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
     <div class="mb-3">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address"  value="" required >
+        <label for="username" class="sr-only">Email address</label>
+        <input type="email" name="username" id="username" class="form-control" placeholder="Email address"  value="" required >
         <div class="invalid-feedback">
             Valid email is required.
         </div>
     </div>
     <div class="mb-3">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="id" id="inputPassword" class="form-control" placeholder="Password"  value="" required>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"  value="" required>
         <div class="invalid-feedback">
             Password is required.
         </div>

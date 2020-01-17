@@ -13,11 +13,7 @@
 
     <a class="navbar-brand col-sm-3 col-md-2 mr-0">
 
-        <#if role == "ADMIN">
-            <span>Admin Page</span>
-        <#elseif role == "USER">
-            <span>User's ${userFirstName} Page</span>
-        </#if>
+
     </a>
 
     <ul class="navbar-nav px-3">
@@ -37,7 +33,11 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h2>User's profile:</h2>
+            <#if role == "ADMIN">
+                <h2>Admin Page</h2><span>Admin Page</span>
+            <#elseif role == "USER">
+                <h2>Welcome ${userFirstName}!</h2><span></span>
+            </#if>
 
             <#include "../forms/userForm.ftlh">
 

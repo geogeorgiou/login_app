@@ -14,9 +14,9 @@ public class LoginController {
 
     @GetMapping(value = "/login")
     public String login(@RequestParam(name = "error", required = false)
-                        boolean error,
+                                    boolean error,
                         Model model) {
-        model.addAttribute("hasError",error);
+        model.addAttribute("hasError", error);
         return "pages/login";
     }
 

@@ -3,18 +3,18 @@ package com.login.webapp.service;
 import com.login.webapp.model.UserModel;
 import com.login.webapp.model.UserToUserModel;
 import com.login.webapp.domain.LoginUser;
-import com.login.webapp.repository.UserRepository;
+import com.login.webapp.repository.LoginUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class LoggedUserServiceImpl implements LoggedUserService {
 
     //UserRepository to retrieve data
     @Autowired
-    private UserRepository userRepository;
+    private LoginUserRepository userRepo;
 
 
     //mapper to map DB data to Model data
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     public UserModel findByEmail(String email) {
 
         //needs some exception handling here if exists etc
-        Optional<LoginUser> loginUser = userRepository.findByEmail(email);
+        Optional<LoginUser> loginUser = userRepo.findByEmail(email);
         return mapper.mapToUserModel(loginUser.get());
     }
 
@@ -47,9 +47,9 @@ public class UserServiceImpl implements UserService {
         loginUser.setLastName(userModel.getLastName());
         loginUser.setPhoneNumber(userModel.getPhoneNumber());
         loginUser.setPassword(userModel.getPassword());
-        loginUser.setRole(userModel.getRole());
+        loginUser.setRole(userModel.getRole()); //maybe not needed in update
 
-        return userRepository.save(loginUser);
+        return userRepo.save(loginUser);
     }
 
 }

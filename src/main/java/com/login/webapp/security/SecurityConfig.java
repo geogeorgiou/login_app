@@ -1,4 +1,5 @@
 package com.login.webapp.security;
+
 import com.login.webapp.authenticationhandler.LoginSuccessHandler;
 import com.login.webapp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
-                .deleteCookies("JSESSIONID")
+//                .deleteCookies("JSESSIONID")
                 .permitAll()
                 .and()
 
@@ -78,6 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
-
+//    //encoder for createOwner
+//    public static String getEncodedPassword(String pass){
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        return encoder.encode(pass);
+//    }
 }
-
