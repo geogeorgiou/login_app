@@ -17,7 +17,6 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     @Autowired
     private LoginUserRepository userRepo;
 
-
     //mapper to map DB data to Model data
     @Autowired
     private UserToUserModel mapper;
@@ -26,10 +25,6 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     private PasswordEncoder encoder;
 
     //SEARCH
-//    @Override
-//    public Optional<LoginUser> findByEmail(String email) {
-//        return userRepository.findByEmail(email);
-//    }
 
     //using Repository that extends JPA to find User By Email
 
@@ -51,12 +46,19 @@ public class LoggedUserServiceImpl implements LoggedUserService {
         loginUser.setLastName(userModel.getLastName());
         loginUser.setPhoneNumber(userModel.getPhoneNumber());
 
-
+        //encrypt password before update
         loginUser.setPassword(encoder.encode(userModel.getPassword()));
 
-//        loginUser.setPassword(userModel.getPassword());
         loginUser.setRole(userModel.getRole());
 
+        return userRepo.save(loginUser);
+    }
+
+    @Override
+    public LoginUser createUser(LoginUser loginUser) {
+
+        //encrypt password before create
+        loginUser.setPassword(encoder.encode(loginUser.getPassword()));
         return userRepo.save(loginUser);
     }
 

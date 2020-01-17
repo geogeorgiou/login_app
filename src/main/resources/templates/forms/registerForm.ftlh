@@ -6,7 +6,7 @@
 <#--register form is defined here-->
 <#--whether user registers or not will be directed to login page-->
 <#--and prompted to login-->
-<form class="needs-validation" action="/login" id="userValidator" method="POST" onsubmit="return passValidator();">
+<form class="needs-validation" action="/register" id="userValidator" method="POST" onsubmit="return passValidator();">
 
 <#--    row with first and last name input-->
     <div class="row">
@@ -54,7 +54,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
 
-            <p><span class="emsg hidden">Please enter a Valid Password</span></p>
+            <p><span class="emsg hidden">at least 1 ([a-z] and/or [A-Z]), 1 numeric [0-9], a special char and at least 8 char total</span></p>
         </div>
 
     </div>

@@ -54,7 +54,7 @@ public class HomeController {
         //this should be changed depending on user/admin
         userForm.setRole(RoleType.USER);
 
-        //may be redundant?
+        //may be redundant? except for role
         model.addAttribute(LOGGED_USER_ATTR, userForm);
         model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
         model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());

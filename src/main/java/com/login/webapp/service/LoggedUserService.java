@@ -2,6 +2,7 @@ package com.login.webapp.service;
 
 import com.login.webapp.model.UserModel;
 import com.login.webapp.domain.LoginUser;
+import org.apache.juli.logging.Log;
 
 public interface LoggedUserService {
 
@@ -13,4 +14,8 @@ public interface LoggedUserService {
     //UPDATE
 
     LoginUser updateUser(UserModel userModel);
+
+    //CREATE
+
+    LoginUser createUser(LoginUser loginUser);
 }
