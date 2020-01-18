@@ -1,5 +1,6 @@
 package com.login.webapp.service;
 
+import com.login.webapp.exception.DuplicateEmailException;
 import com.login.webapp.model.UserModel;
 import com.login.webapp.mapper.UserToUserModel;
 import com.login.webapp.domain.LoginUser;
@@ -37,10 +38,19 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     }
 
     @Override
-    public LoginUser updateUser(UserModel userModel) {
+    public LoginUser updateUser(UserModel userModel) throws DuplicateEmailException {
         LoginUser loginUser = new LoginUser();
 
+//        Optional
+//                .ofNullable(userRepo.findByEmail(userModel.getEmail()))
+//                .orElseThrow(DuplicateEmailException::new);
+
+        Optional.of(userRepo.findByEmail(userModel.getEmail()))
+                .ifPresent(loginUser1 -> {throw new DuplicateEmailException();});
+
         loginUser.setEmail(userModel.getEmail());
+
+
         loginUser.setCompany(userModel.getEmail());
         loginUser.setFirstName(userModel.getFirstName());
         loginUser.setLastName(userModel.getLastName());

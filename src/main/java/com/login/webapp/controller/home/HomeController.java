@@ -3,6 +3,7 @@ package com.login.webapp.controller.home;
 
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.enums.RoleType;
+import com.login.webapp.exception.DuplicateEmailException;
 import com.login.webapp.model.LoginResponse;
 import com.login.webapp.model.UserModel;
 import com.login.webapp.service.LoggedUserService;
@@ -59,7 +60,13 @@ public class HomeController {
         model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
         model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
 
-        loggedUserService.updateUser(userForm);
+        try {
+            loggedUserService.updateUser(userForm);
+        }catch (DuplicateEmailException dee){
+            System.out.println("duplicate mail no update!");
+            //change sth in view maybe?
+        }
+
 
 //        return "pages/userHome";
         return "redirect:/user/home";
