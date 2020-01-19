@@ -30,6 +30,15 @@
         <div class="col-md-6 mb-3">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+
+            <#if duplicateMail??>
+                <div>
+                    <p style="color:red;">
+                        ${duplicateMail}
+                    </p>
+                </div>
+            </#if>
+
         </div>
 
         <div class="col-md-6 mb-3">

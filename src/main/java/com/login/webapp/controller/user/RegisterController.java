@@ -29,6 +29,7 @@ public class RegisterController {
     private static final String LOGGED_USER_ATTR = "loggedUser";
     private static final String LOGGED_USER_NAME = "userFirstName";
     private static final String LOGGED_USER_ROLE = "role";
+    private static final String DUPLICATE_MAIL_MSG = "duplicateMail";
 
     @Autowired
     private LoggedUserService logService;
@@ -40,6 +41,7 @@ public class RegisterController {
     public String getRegister(Model model){
 
         model.addAttribute(LOGGED_USER_ATTR, new UserModel());
+//        model.addAttribute(DUPLICATE_MAIL_MSG,""); //redundant?
 
         return "pages/register";
     }
@@ -48,28 +50,22 @@ public class RegisterController {
     public String postRegister(Model model,
                                 @ModelAttribute(LOGGED_USER_ATTR) UserModel userForm){
 
+        try {
 
-        userForm.setRole(RoleType.USER);
+            //needs to change depending on USER/ADMIN property
+            userForm.setRole(RoleType.USER);
 
-        model.addAttribute(LOGGED_USER_ATTR, userForm);
-        model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
-        model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
+            model.addAttribute(LOGGED_USER_ATTR, userForm);
+            model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
+            model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
 
-        logService.createUser(userForm);
-
-//        try {
-//
-//            //needs to change depending on USER/ADMIN property
-//            userForm.setRole(RoleType.USER);
-//
-//            model.addAttribute(LOGGED_USER_ATTR, userForm);
-//            model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
-//            model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
-//
-//            logService.createUser(userForm);
-//        }catch (DuplicateEmailException dee){
-//            System.out.println(dee.getMessage());
-//        }
+            logService.createUser(userForm);
+        }catch (DuplicateEmailException dee){
+            System.out.println(dee.getMessage());
+            model.addAttribute(DUPLICATE_MAIL_MSG, dee.getMessage());
+            //redirect to register when duplicate mail inserted
+            return "pages/register";
+        }
 
 
 

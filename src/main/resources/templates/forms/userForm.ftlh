@@ -60,10 +60,6 @@
     <div class="col-md-6 order-md-1">
         <div class="row">
             <button class="btn btn-primary btn-lg mt-4" type="submit" >Submit Changes</button>&nbsp&nbsp&nbsp
-<#--            <span id="buttonAppear"></span>-->
-
-<#--            <button class="btn btn-primary btn-lg mt-4" type="submit" >Cancel</button>&nbsp&nbsp&nbsp-->
-<#--            <span id="buttonAppear"></span>-->
         </div>
     </div>
 </form>
