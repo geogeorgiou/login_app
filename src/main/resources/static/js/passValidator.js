@@ -8,7 +8,7 @@ function passValidator() {
     //at least 1 numeric [0-9]
     //at least 1 special char [!@#$%^&*]
 
-    var $regexname = /^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[!@#$%^&*])(?=.*[0-9])[0-9a-zA-Z!@#$%^&*]{8,}$/;
+    var $regexname = /^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[!@#$%^&*.])(?=.*[0-9])[0-9a-zA-Z!@#$%^&*.]{8,}$/;
 
     var password = document.getElementById("password").value;
 

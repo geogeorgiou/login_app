@@ -1,6 +1,7 @@
 package com.login.webapp.security;
 
 import com.login.webapp.authenticationhandler.LoginSuccessHandler;
+import com.login.webapp.encoder.PlainPasswordEncoder;
 import com.login.webapp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,9 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService(){ return new UserDetailsServiceImpl();}
 
     //bean for Password Encryption using BCryptEncoder
+//    @Bean
+//    public PasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
+
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        return new PlainPasswordEncoder();
     }
 
     @Override
