@@ -4,6 +4,8 @@ package com.login.webapp.controller.home;
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.enums.RoleType;
 import com.login.webapp.exception.DuplicateEmailException;
+import com.login.webapp.mapper.UserModelToUser;
+import com.login.webapp.mapper.UserToUserModel;
 import com.login.webapp.model.LoginResponse;
 import com.login.webapp.model.UserModel;
 import com.login.webapp.service.LoggedUserService;
@@ -27,8 +29,7 @@ public class HomeController {
     @Autowired
     private LoggedUserService loggedUserService;
 
-//    @Autowired
-//    private UserModelToUser mapper;
+
 
     @GetMapping(value = "/user/home")
     public String getUserProfile(Model model) {
@@ -36,7 +37,6 @@ public class HomeController {
         LoginResponse loginResponse = (LoginResponse) contextHolder.getAuthentication().getPrincipal();
 
         LoginUser loginUser = loginResponse.getLoginUser();
-//        System.out.println(loginUser.getEmail());
 
         UserModel userModel = loggedUserService.findByEmail(loginUser.getEmail());
 
@@ -52,23 +52,16 @@ public class HomeController {
     public String postUserProfile(Model model,
                                   @ModelAttribute(LOGGED_USER_ATTR) UserModel userForm) {
 
-        //this should be changed depending on user/admin
         userForm.setRole(RoleType.USER);
 
-        //may be redundant? except for role
         model.addAttribute(LOGGED_USER_ATTR, userForm);
         model.addAttribute(LOGGED_USER_NAME, userForm.getFirstName());
         model.addAttribute(LOGGED_USER_ROLE, userForm.getRole().name());
 
-        try {
-            loggedUserService.updateUser(userForm);
-        }catch (DuplicateEmailException dee){
-            System.out.println("duplicate mail no update!");
-            //change sth in view maybe?
-        }
+        //add error message here? to be removed after post?
 
 
-//        return "pages/userHome";
+        loggedUserService.updateUser(userForm);
         return "redirect:/user/home";
     }
 

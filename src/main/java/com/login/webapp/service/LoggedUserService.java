@@ -17,5 +17,5 @@ public interface LoggedUserService {
 
     //CREATE
 
-    LoginUser createUser(LoginUser loginUser);
+    LoginUser createUser(UserModel userModel);
 }

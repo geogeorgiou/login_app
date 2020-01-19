@@ -39,9 +39,9 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <#if role == "ADMIN">
-                <h2>Admin Page</h2><span>Admin Page</span>
+                <h2>Admin Page</h2>
             <#elseif role == "USER">
-                <h2>Welcome ${userFirstName}!</h2><span></span>
+                <h2>Welcome ${userFirstName}!</h2>
             </#if>
 
             <#include "../forms/userForm.ftlh">

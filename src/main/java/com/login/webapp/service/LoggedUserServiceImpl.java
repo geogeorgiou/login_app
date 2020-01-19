@@ -5,6 +5,7 @@ import com.login.webapp.model.UserModel;
 import com.login.webapp.mapper.UserToUserModel;
 import com.login.webapp.domain.LoginUser;
 import com.login.webapp.repository.LoginUserRepository;
+import org.apache.juli.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     //using Repository that extends JPA to find User By Email
 
     @Override
-    public UserModel findByEmail(String email) {
+    public UserModel findByEmail(String email) throws NullPointerException{
 
         //needs some exception handling here if exists etc
         Optional<LoginUser> loginUser = userRepo.findByEmail(email);
@@ -39,19 +40,13 @@ public class LoggedUserServiceImpl implements LoggedUserService {
 
     @Override
     public LoginUser updateUser(UserModel userModel) throws DuplicateEmailException {
-        LoginUser loginUser = new LoginUser();
 
-//        Optional
-//                .ofNullable(userRepo.findByEmail(userModel.getEmail()))
-//                .orElseThrow(DuplicateEmailException::new);
+        String updatedEmail = userModel.getEmail();
 
-        Optional.of(userRepo.findByEmail(userModel.getEmail()))
-                .ifPresent(loginUser1 -> {throw new DuplicateEmailException();});
+        LoginUser loginUser = userRepo.findByEmail(updatedEmail).get();
 
-        loginUser.setEmail(userModel.getEmail());
-
-
-        loginUser.setCompany(userModel.getEmail());
+        loginUser.setEmail(updatedEmail);
+        loginUser.setCompany(userModel.getCompany());
         loginUser.setFirstName(userModel.getFirstName());
         loginUser.setLastName(userModel.getLastName());
         loginUser.setPhoneNumber(userModel.getPhoneNumber());
@@ -65,10 +60,35 @@ public class LoggedUserServiceImpl implements LoggedUserService {
     }
 
     @Override
-    public LoginUser createUser(LoginUser loginUser) {
+    public LoginUser createUser(UserModel userModel) throws DuplicateEmailException{
+
+        String email = userModel.getEmail();
+
+//        Optional<LoginUser> optionalLoginUser;
+//
+//        try {
+//            optionalLoginUser = userRepo.findByEmail(email);
+//            //if stored throw duplicate exception
+//            //if not do the update
+//
+//        } catch (NullPointerException npe){
+//
+//        }
+//
+//
+//        Optional.of(optionalLoginUser)
+//                .ifPresent(loginUser -> {throw new DuplicateEmailException(email);});
+
+        LoginUser loginUser = new LoginUser();
+        loginUser.setEmail(email);
+        loginUser.setFirstName(userModel.getFirstName());
+        loginUser.setLastName(userModel.getLastName());
+        loginUser.setCompany(userModel.getCompany());
+        loginUser.setPhoneNumber(userModel.getPhoneNumber());
+        loginUser.setRole(userModel.getRole());
 
         //encrypt password before create
-        loginUser.setPassword(encoder.encode(loginUser.getPassword()));
+        loginUser.setPassword(encoder.encode(userModel.getPassword()));
         return userRepo.save(loginUser);
     }
 

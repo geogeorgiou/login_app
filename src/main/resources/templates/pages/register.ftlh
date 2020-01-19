@@ -14,13 +14,6 @@
         <span>Register Page</span>
     </a>
 
-<#--    <ul class="navbar-nav px-3">-->
-<#--        <li class="nav-item text-nowrap">-->
-
-<#--            <a class="nav-link" href="/login">Logout</a>-->
-
-<#--        </li>-->
-<#--    </ul>-->
 </nav>
 <div class="container-fluid">
     <div class="row">
