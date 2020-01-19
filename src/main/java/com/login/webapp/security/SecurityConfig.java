@@ -12,15 +12,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+//Security Config module to enable Security for the Webapp
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //Define necessary variables for Security
+
+    //handler for authentication success
     @Autowired
     private LoginSuccessHandler loginSuccessHandler;
 
+    //bean for UserDetailsService
     @Bean
     public UserDetailsService userDetailsService(){ return new UserDetailsServiceImpl();}
 
+    //bean for Password Encryption using BCryptEncoder
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -78,9 +85,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
-//    //encoder for createOwner
-//    public static String getEncodedPassword(String pass){
-//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//        return encoder.encode(pass);
-//    }
 }

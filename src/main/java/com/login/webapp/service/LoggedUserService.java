@@ -1,13 +1,11 @@
 package com.login.webapp.service;
 
-import com.login.webapp.model.UserModel;
 import com.login.webapp.domain.LoginUser;
-import org.apache.juli.logging.Log;
+import com.login.webapp.model.UserModel;
 
 public interface LoggedUserService {
 
     //SEARCH
-//    Optional<LoginUser> findByEmail(String email);
 
     UserModel findByEmail(String email);
 

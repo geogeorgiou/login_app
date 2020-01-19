@@ -21,6 +21,11 @@ input.valid, input.valid:focus{
     border-color: green;
 }
 
+/**************************************/
+
+/*error message styling for */
+/*password validity*/
+
 .emsg{
     color: red;
 }

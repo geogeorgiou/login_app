@@ -15,6 +15,9 @@ public class LoginUser {
     private static final int MAX_PHONE_LENGTH = 10;
 
     //User variables
+
+    //email is the ID of the DB
+    //cannot be duplicate or null
     @Id
     @Column(name = "email", nullable = false)
     private String email;
@@ -34,6 +37,8 @@ public class LoginUser {
     @Column(name = "password", nullable = false)
     private String password;
 
+    //role is the attribute to distinguish if user
+    //is admin or plain user
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private RoleType role;

@@ -2,8 +2,9 @@
 <#--user form is defined here-->
 <#--this form is used when logged in for data display and edit-->
 
+<#--uses passValidator on submit to check password format-->
+
  <form class="needs-validation" action="/user/home" id="userValidator" method="POST" onsubmit="return passValidator();">
-<#--<form class="needs-validation"  action="/user/${loggedUser.email}" id="userValidator" method="POST">-->
 
 
     <#--    row with first and last name input-->

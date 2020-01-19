@@ -13,19 +13,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//Handler for Authentication success
+
 @Component
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
+    //providing home page URLs for user and admin
     private static final String USER_HOME_PAGE_URL = "/user/home";
-    private static final String ADMIN_HOME_URL = "/admin/home";
+    private static final String ADMIN_HOME_URL = "/admin/home"; //not used
 
+    //redirect strategy per case
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-//        response.addCookie(generateTimestampCookie());
 
         String redirectUrl = USER_HOME_PAGE_URL;
+
+        //assign authorities + URL per role
         for (GrantedAuthority grantedAuthority : authentication.getAuthorities()) {
             if (RoleType.ADMIN.name().equals(grantedAuthority.getAuthority())) {
                 redirectUrl = ADMIN_HOME_URL;
@@ -33,10 +38,5 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         }
         redirectStrategy.sendRedirect(request, response, redirectUrl);
     }
-
-
-//    private Cookie generateTimestampCookie() {
-//        return new Cookie(TIMESTAMP_COOKIE_NAME, String.valueOf(System.currentTimeMillis()));
-//    }
 
 }

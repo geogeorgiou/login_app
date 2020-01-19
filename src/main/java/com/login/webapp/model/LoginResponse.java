@@ -6,6 +6,9 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+//LoginResponse necessary for SpringSecurity module
+//to hold username, password and authorities
+
 public class LoginResponse extends User {
 
     private LoginUser loginUser;

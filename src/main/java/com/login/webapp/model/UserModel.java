@@ -2,7 +2,7 @@ package com.login.webapp.model;
 
 import com.login.webapp.enums.RoleType;
 
-//necessary functional class to get data from DB and output it to HTML
+//necessary functional for ftl to display
 public class UserModel {
 
     //UserModel variables

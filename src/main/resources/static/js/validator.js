@@ -1,3 +1,9 @@
+// validator for all input fields
+// with jQuery checks for "rules"
+// and returns corresponding error "messages"
+
+// used in /user/home + /register
+
 jQuery(function ($){
 
     const userValidator = $('#userValidator');
@@ -70,18 +76,3 @@ jQuery(function ($){
 
 });
 
-// strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-// var regExp = new RegExp("^(?=.{8})") //means 8 chars
-//
-// var regExp = new RegExp("^(?=.[0-9])") //means 1 numeric
-//
-// var regExp = new RegExp("(?=.*[!@#$%^&*]) ") //special char
-//
-//
-// var regExp = new RegExp("^(?=.{8})(?=.*[a-z])") //8 chars 1 a-z
-//
-// var regExp = new RegExp("^(?=.{8,})(?=.*[a-z])|^(?=.{8,})(?=.*[A-Z])") //8 chars 1> a-z || 8 chars 1> A-Z
-//
-// var regExp = new RegExp("^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[!@#$%^&*])[0-9a-zA-Z!@#$%^&*]{8,}");
-//
-// final check ^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[!@#$%^&*])(?=.*[0-9])[0-9a-zA-Z!@#$%^&*]{8,}

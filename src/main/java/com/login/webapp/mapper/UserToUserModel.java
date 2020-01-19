@@ -5,9 +5,13 @@ import com.login.webapp.enums.RoleType;
 import com.login.webapp.model.UserModel;
 import org.springframework.stereotype.Component;
 
+//Mapper class from User to UserModel Data
+
 @Component
 public class UserToUserModel {
 
+    //assigns variables from User to User Model
+    //basically DB data to plain String for web display
     public UserModel mapToUserModel(LoginUser user){
         UserModel userModel = new UserModel();
 

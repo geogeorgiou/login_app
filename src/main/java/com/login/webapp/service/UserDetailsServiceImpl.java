@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+//Implementation of UserDetailsService that creates LoginResponse
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
