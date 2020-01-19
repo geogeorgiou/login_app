@@ -12,12 +12,15 @@ function passValidator() {
 
     var password = document.getElementById("password").value;
 
-
     //check if password matches regular expression format
     if ($regexname.test(password)){
         $('.emsg').addClass('hidden');
         return true;
     }
+
+    //if invalid format; style password with red outline
+    document.getElementById("password").style.border="2px solid red";
+
     $('.emsg').removeClass('hidden');
     $('.emsg').show();
     return false;

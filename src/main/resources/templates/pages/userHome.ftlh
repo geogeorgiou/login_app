@@ -64,8 +64,8 @@
 
 
 <#--scripts for validation of input fields + password-->
-<script src="js/passValidator.js"></script>
-<script src="js/validator.js"></script>
+<script src="/js/passValidator.js"></script>
+<script src="/js/validator.js"></script>
 
 </body>
 </html>

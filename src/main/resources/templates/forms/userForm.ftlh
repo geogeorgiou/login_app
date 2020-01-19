@@ -51,6 +51,8 @@
         <div class="col-md-6 mb-3">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="${loggedUser.password}" required>
+
+            <p><span class="emsg hidden">at least 1 ([a-z] and/or [A-Z]), 1 numeric [0-9], a special char and at least 8 char total</span></p>
         </div>
 
     </div>
